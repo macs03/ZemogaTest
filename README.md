@@ -1,4 +1,4 @@
-# valiu-test
+# Zemoga-test
 
 ### Backen
 
@@ -19,13 +19,17 @@
 #### yarn start or npm start
 
 #### yarn test or npm test
+
 - for run all test
 
 #### yarn tw or npm tw
+
 - for run all test with watcher option
 
-### For run on iOS 
+### For run on iOS
+
 #### yarn ios or npm ios
 
-### For run on Android 
+### For run on Android
+
 #### yarn android or npm android
