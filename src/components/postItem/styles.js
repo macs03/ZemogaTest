@@ -15,6 +15,22 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 10,
   },
+  item: {
+    paddingHorizontal: 20,
+  },
+  favoriteIcon: {
+    tintColor: colors.gold,
+  },
+  chevronIcon: {
+    tintColor: colors.darkGray,
+  },
+  dot: {
+    height: 8,
+    width: 8,
+    borderRadius: 4,
+    backgroundColor: colors.blue,
+    marginHorizontal: 2,
+  },
 });
 
 export default styles;

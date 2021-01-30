@@ -1,18 +1,18 @@
-import React, {useRef} from 'react';
+import React from 'react';
 
 import {
   Colors,
   ListItem,
   Text,
-  Avatar,
-  AvatarHelper,
+  Assets,
+  Image,
   Drawer,
-  Button,
 } from 'react-native-ui-lib';
 
 import PropTypes from 'prop-types';
 
 import styles from './styles';
+import {Platform, View} from 'react-native';
 
 const PostItem = ({item, index, addRef, onSwipeableWillOpen, navigationTo}) => {
   return (
@@ -25,10 +25,16 @@ const PostItem = ({item, index, addRef, onSwipeableWillOpen, navigationTo}) => {
         height={75.8}
         onPress={() => {
           navigationTo();
-        }}>
+        }}
+        style={styles.item}>
         <ListItem.Part left>
-          <Text>*</Text>
+          <View style={styles.dot} />
         </ListItem.Part>
+        {Platform.OS === 'ios' && (
+          <ListItem.Part left>
+            <Image source={Assets.icons.favorite} style={styles.favoriteIcon} />
+          </ListItem.Part>
+        )}
         <ListItem.Part middle column containerStyle={styles.border}>
           <ListItem.Part containerStyle={styles.middle}>
             <Text
@@ -40,9 +46,17 @@ const PostItem = ({item, index, addRef, onSwipeableWillOpen, navigationTo}) => {
             </Text>
           </ListItem.Part>
         </ListItem.Part>
-        <ListItem.Part right>
-          <Text>></Text>
-        </ListItem.Part>
+
+        {Platform.OS === 'ios' && (
+          <ListItem.Part right>
+            <Image source={Assets.icons.chevron} style={styles.chevronIcon} />
+          </ListItem.Part>
+        )}
+        {Platform.OS === 'android' && (
+          <ListItem.Part right>
+            <Image source={Assets.icons.favorite} style={styles.favoriteIcon} />
+          </ListItem.Part>
+        )}
       </ListItem>
     </Drawer>
   );

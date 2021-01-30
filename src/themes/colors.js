@@ -6,6 +6,7 @@ const colors = {
   blue: '#0E75EE',
   darkGray: '#D7D7D7',
   transparent: 'transparent',
+  gold: '#FEE21C',
 };
 
 export default colors;
