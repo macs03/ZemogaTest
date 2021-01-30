@@ -53,9 +53,22 @@ const rightButtons = [
 
 const Home = ({navigation}) => {
   const refArray = [];
+  let lastIndex;
 
   const addRef = (ref, index) => {
     refArray[index] = ref;
+  };
+
+  const closeDrawer = (index) => {
+    refArray[index].closeDrawer();
+  };
+
+  const closeLast = ({index}) => {
+    console.log(index);
+    if (lastIndex !== undefined && lastIndex !== index) {
+      closeDrawer(lastIndex);
+    }
+    lastIndex = index;
   };
 
   return (
@@ -70,7 +83,7 @@ const Home = ({navigation}) => {
             item={{...item, rightButtons}}
             index={index}
             addRef={addRef}
-            onSwipeableWillOpen={() => {}}
+            onSwipeableWillOpen={closeLast}
             navigationTo={() => navigation.navigate('Post')}
           />
         )}
