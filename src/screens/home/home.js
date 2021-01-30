@@ -1,8 +1,12 @@
 import React from 'react';
 import {View} from 'react-native';
-import {Button} from 'react-native-ui-lib';
+import {Button, Assets, Image} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import styles from './styles';
+
+Assets.loadAssetsGroup('icons', {
+  icon1: require('../../assets/icons/refresh.png'),
+});
 
 const Home = ({navigation}) => {
   return (
@@ -14,7 +18,10 @@ const Home = ({navigation}) => {
         style={{marginBottom: 2}}
         enableShadow
         onPress={() => navigation.navigate('Post')}
+        iconOnRight={true}
       />
+      <Image assetName="refresh" />
+      <Image source={Assets.icons.icon1} />
     </View>
   );
 };
