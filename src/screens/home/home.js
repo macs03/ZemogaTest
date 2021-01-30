@@ -7,6 +7,7 @@ import styles from './styles';
 // this could be a provider??
 Assets.loadAssetsGroup('icons', {
   refresh: require('../../assets/icons/refresh.png'),
+  favorite: require('../../assets/icons/star.png'),
 });
 
 const Home = ({navigation}) => {

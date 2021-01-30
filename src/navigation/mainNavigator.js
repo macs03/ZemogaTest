@@ -7,6 +7,7 @@ import Home from '../screens/home/home';
 import Post from '../screens/post/post';
 
 import Refresh from '../components/refresh/refresh';
+import Favorite from '../components/favorite/favorite';
 
 import colors from '../themes/colors';
 
@@ -56,13 +57,7 @@ const RootStackScreen = () => {
           component={Post}
           options={{
             title: 'Post',
-            // headerRight: () => (
-            //   <Button
-            //     onPress={() => alert('This is a button!')}
-            //     title="Info"
-            //     color="#fff"
-            //   />
-            // ),
+            headerRight: () => <Favorite />,
             ...headerOptions,
           }}
         />

@@ -30,12 +30,6 @@ const Refresh = () => {
   );
 };
 
-Refresh.propTypes = {
-  editTag: PropTypes.func.isRequired,
-  deleteTag: PropTypes.func.isRequired,
-  tag: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
-  color: PropTypes.string.isRequired,
-};
+Refresh.propTypes = {};
 
 export default Refresh;
