@@ -4,11 +4,13 @@ import {Button, Assets} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import Filter from '../../components/filter/filter';
+import DeleteButton from '../../components/deleteButton/deleteButton';
 
 // this could be a provider??
 Assets.loadAssetsGroup('icons', {
   refresh: require('../../assets/icons/refresh.png'),
   favorite: require('../../assets/icons/star.png'),
+  trash: require('../../assets/icons/delete.png'),
 });
 
 const Home = ({navigation}) => {
@@ -24,6 +26,7 @@ const Home = ({navigation}) => {
         onPress={() => navigation.navigate('Post')}
         iconOnRight={true}
       />
+      <DeleteButton onDelete={() => {}} />
     </View>
   );
 };
