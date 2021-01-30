@@ -23,7 +23,8 @@ const Filter = () => {
       {Object.values(buttons).map((button, index) => (
         <TouchableOpacity
           style={[styles.button, active === index && styles.activeButton]}
-          onPress={() => onPressButton(index)}>
+          onPress={() => onPressButton(index)}
+          key={index}>
           <Text style={[styles.text, active === index && styles.activeText]}>
             {Platform.OS === 'android' ? button.toUpperCase() : button}
           </Text>

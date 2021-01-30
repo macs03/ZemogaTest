@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
   item: {
     borderBottomColor: colors.darkGray,
-    borderWidth: 2,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: colors.transparent,
     width: '100%',
     textAlign: 'justify',

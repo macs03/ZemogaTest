@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     height: '100%',
   },
+  flatlist: {
+    width: '100%',
+  },
 });
 
 export default styles;

@@ -1,10 +1,12 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, FlatList} from 'react-native';
 import {Button, Assets} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import Filter from '../../components/filter/filter';
 import DeleteButton from '../../components/deleteButton/deleteButton';
+import PostItem from '../../components/postItem/postItem';
+import colors from '../../themes/colors';
 
 // this could be a provider??
 Assets.loadAssetsGroup('icons', {
@@ -13,18 +15,69 @@ Assets.loadAssetsGroup('icons', {
   trash: require('../../assets/icons/delete.png'),
 });
 
+const items = [
+  {
+    userId: 1,
+    id: 1,
+    title:
+      'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
+    body:
+      'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto',
+  },
+  {
+    userId: 2,
+    id: 2,
+    title:
+      'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
+    body:
+      'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto',
+  },
+  {
+    userId: 3,
+    id: 3,
+    title:
+      'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
+    body:
+      'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto',
+  },
+];
+
+const rightButtons = [
+  {
+    text: 'Delete',
+    icon: Assets.icons.trash,
+    background: colors.red,
+    onPress: (item) => console.log(item.index),
+  },
+];
+
 const Home = ({navigation}) => {
+  const refArray = [];
+
+  const addRef = (ref, index) => {
+    refArray[index] = ref;
+  };
+
   return (
     <View style={styles.container}>
       <Filter />
-      <Button
-        backgroundColor="#30B650"
-        label="Go to Post"
-        labelStyle={{fontWeight: '600'}}
-        style={{marginBottom: 2}}
-        enableShadow
-        onPress={() => navigation.navigate('Post')}
-        iconOnRight={true}
+      <FlatList
+        style={styles.flatlist}
+        data={items}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({item, index}) => (
+          <PostItem
+            item={{...item, rightButtons}}
+            index={index}
+            addRef={addRef}
+            onSwipeableWillOpen={() => {}}
+            navigationTo={() => navigation.navigate('Post')}
+          />
+        )}
+        removeClippedSubviews={true}
+        initialNumToRender={5}
+        windowSize={1}
+        ListFooterComponent={<View style={styles.spacer} />}
       />
       <DeleteButton onDelete={() => {}} />
     </View>
