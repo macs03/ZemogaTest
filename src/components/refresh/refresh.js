@@ -9,16 +9,18 @@ import styles from './styles';
 import Animations from './animations';
 
 const Refresh = () => {
-  const spinNumber = new Animated.Value(0);
+  let spinNumber = new Animated.Value(0);
   const animations = new Animations({spinNumber});
 
   const spin = spinNumber.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['0deg', '360deg'],
+    inputRange: [0, 0.5, 1],
+    outputRange: ['0deg', '360deg', '720deg'],
   });
 
   const onPressButton = () => {
-    animations.startSpin.start();
+    animations.startSpin.start(() => {
+      spinNumber.setValue(0);
+    });
   };
 
   return (

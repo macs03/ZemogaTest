@@ -3,6 +3,7 @@ import {View} from 'react-native';
 import {Button, Assets} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import styles from './styles';
+import Filter from '../../components/filter/filter';
 
 // this could be a provider??
 Assets.loadAssetsGroup('icons', {
@@ -13,6 +14,7 @@ Assets.loadAssetsGroup('icons', {
 const Home = ({navigation}) => {
   return (
     <View style={styles.container}>
+      <Filter />
       <Button
         backgroundColor="#30B650"
         label="Go to Post"
