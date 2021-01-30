@@ -1,15 +1,15 @@
 import * as React from 'react';
+import {enableScreens} from 'react-native-screens';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {enableScreens} from 'react-native-screens';
+
+import colors from '../themes/colors';
 
 import Home from '../screens/home/home';
 import Post from '../screens/post/post';
 
 import Refresh from '../components/refresh/refresh';
 import Favorite from '../components/favorite/favorite';
-
-import colors from '../themes/colors';
 
 enableScreens();
 

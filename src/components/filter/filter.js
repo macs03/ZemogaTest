@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
-
-import {Text, TouchableOpacity, Platform, View} from 'react-native';
-
 import PropTypes from 'prop-types';
+import React, {useState} from 'react';
+import {Text, TouchableOpacity, Platform, View} from 'react-native';
 
 import styles from './styles';
 

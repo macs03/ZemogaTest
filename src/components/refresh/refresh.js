@@ -1,9 +1,7 @@
 import React from 'react';
-
-import {Animated, TouchableOpacity} from 'react-native';
-import {Assets, Image} from 'react-native-ui-lib';
-
 import PropTypes from 'prop-types';
+import {Assets, Image} from 'react-native-ui-lib';
+import {Animated, TouchableOpacity} from 'react-native';
 
 import styles from './styles';
 import Animations from './animations';

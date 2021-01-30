@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   Colors,
   ListItem,
@@ -8,11 +7,10 @@ import {
   Image,
   Drawer,
 } from 'react-native-ui-lib';
-
 import PropTypes from 'prop-types';
+import {Platform, View} from 'react-native';
 
 import styles from './styles';
-import {Platform, View} from 'react-native';
 
 const PostItem = ({item, index, addRef, onSwipeableWillOpen, navigationTo}) => {
   return (

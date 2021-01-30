@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {StatusBar, View, StyleSheet} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
+import {StatusBar, View, StyleSheet} from 'react-native';
 
 import app from './lib/app';
-import MainNavigator from './navigation/mainNavigator';
 import Splash from './screens/splash/splash';
+import MainNavigator from './navigation/mainNavigator';
 
 const App = () => {
   const [isBooting, setIsBooting] = useState(true);

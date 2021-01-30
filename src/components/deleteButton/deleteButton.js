@@ -1,7 +1,6 @@
 import React from 'react';
-
-import {Text, TouchableOpacity, Platform, View} from 'react-native';
 import {Assets, Image} from 'react-native-ui-lib';
+import {Text, TouchableOpacity, Platform, View} from 'react-native';
 
 import PropTypes from 'prop-types';
 
