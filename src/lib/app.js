@@ -1,4 +1,6 @@
-const globalLoaders = [];
+import AssetsLoader from './assetsLoader';
+
+const globalLoaders = [AssetsLoader];
 
 export default class App {
   static socket = undefined;
