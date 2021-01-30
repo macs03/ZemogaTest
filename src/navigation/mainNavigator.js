@@ -4,11 +4,22 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {enableScreens} from 'react-native-screens';
 import Home from '../screens/home/home';
 import Post from '../screens/post/post';
+import colors from '../themes/colors';
 
 enableScreens();
 
 const Stack = createStackNavigator();
 const RootStack = createStackNavigator();
+
+const headerOptions = {
+  headerStyle: {
+    backgroundColor: colors.mainGreen,
+  },
+  headerTintColor: colors.white,
+  headerTitleStyle: {
+    fontWeight: 'bold',
+  },
+};
 
 const MainStackNavigator = () => {
   return (
@@ -29,12 +40,19 @@ const RootStackScreen = () => {
         <RootStack.Screen
           name="Main"
           component={MainStackNavigator}
-          options={{headerTransparent: true, title: 'Posts', headerLeft: null}}
+          options={{
+            title: 'Posts',
+            headerLeft: null,
+            ...headerOptions,
+          }}
         />
         <RootStack.Screen
           name="Post"
           component={Post}
-          options={{headerTransparent: true, title: 'Post'}}
+          options={{
+            title: 'Post',
+            ...headerOptions,
+          }}
         />
       </RootStack.Navigator>
     </NavigationContainer>
