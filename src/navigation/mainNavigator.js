@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {enableScreens} from 'react-native-screens';
 import Home from '../screens/home/home';
-import Modal from '../screens/modal/modal';
+import Post from '../screens/post/post';
 
 enableScreens();
 
@@ -25,16 +25,16 @@ const MainStackNavigator = () => {
 const RootStackScreen = () => {
   return (
     <NavigationContainer>
-      <RootStack.Navigator mode="modal">
+      <RootStack.Navigator>
         <RootStack.Screen
           name="Main"
           component={MainStackNavigator}
-          options={{headerShown: false}}
+          options={{headerTransparent: true, title: 'Posts', headerLeft: null}}
         />
         <RootStack.Screen
-          name="Modal"
-          component={Modal}
-          options={{headerTransparent: true, title: '', headerLeft: null}}
+          name="Post"
+          component={Post}
+          options={{headerTransparent: true, title: 'Post'}}
         />
       </RootStack.Navigator>
     </NavigationContainer>

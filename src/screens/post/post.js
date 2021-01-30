@@ -4,12 +4,12 @@ import {View} from 'react-native';
 
 import styles from './styles';
 
-const Modal = ({navigation: {goBack}, route: {params}}) => {
+const Post = ({navigation: {goBack}, route: {params}}) => {
   return <View style={styles.container} />;
 };
 
-Modal.propTypes = {
+Post.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-export default Modal;
+export default Post;
