@@ -6,12 +6,23 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "node_modules/.bin/jest",
+    "tw": "node_modules/.bin/jest --watchAll",
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/native": "^5.8.7",
+    "@react-navigation/stack": "^5.12.4",
+    "prop-types": "^15.7.2",
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "react-native-gesture-handler": "^1.8.0",
+    "react-native-reanimated": "^1.13.1",
+    "react-native-safe-area-context": "^3.1.8",
+    "react-native-screens": "^2.13.0",
+    "react-native-splash-screen": "^3.2.0",
+    "react-native-ui-lib": "^5.19.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -24,6 +35,10 @@
     "react-test-renderer": "16.13.1"
   },
   "jest": {
-    "preset": "react-native"
+    "verbose": true,
+    "preset": "react-native",
+    "setupFiles": [
+      "./jest/setup.js"
+    ]
   }
 }
