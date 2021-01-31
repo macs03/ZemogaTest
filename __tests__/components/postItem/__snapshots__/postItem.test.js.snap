@@ -13,7 +13,6 @@ exports[`renders correctly 1`] = `
         "alignItems": "center",
         "borderBottomWidth": 0.5,
         "borderColor": "#D7D7D7",
-        "height": "100%",
         "justifyContent": "center",
         "paddingHorizontal": 20,
         "width": "100%",
