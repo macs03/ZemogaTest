@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import SplashScreen from 'react-native-splash-screen';
+
 import {StatusBar, View, StyleSheet} from 'react-native';
 
 import app from './lib/app';
@@ -11,7 +11,6 @@ const App = () => {
 
   useEffect(() => {
     app.boot().then(() => {
-      SplashScreen.hide();
       setIsBooting(false);
     });
   }, []);

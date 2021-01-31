@@ -1,7 +1,13 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../themes/colors';
 
 const styles = StyleSheet.create({
-  container: {flex: 1, alignItems: 'center', justifyContent: 'center'},
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.mainGreen,
+  },
   lightText: {
     fontSize: 20,
     color: 'white',
@@ -9,8 +15,8 @@ const styles = StyleSheet.create({
   },
   darkText: {
     fontSize: 20,
-    color: 'black',
     marginBottom: 10,
+    color: colors.white,
   },
 });
 
