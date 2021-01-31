@@ -6,7 +6,7 @@
 
 - installing all dependencies
 
-### cd ios && pod install
+#### cd ios && pod install
 
 - for install dependencies on iOS
 
@@ -44,6 +44,9 @@ this is a pair dependencie for `react-navigation` thies help us to use all navig
 
 it offers simple solutions to commons components like buttons badges and other, in this project it was used to build a list of item with swipeable gesture, for me is simpler than build the swippeable component only with `react-native-gesture-handler` and this last dependencie is used by `react-native-ui-lib` the othe dependenciens no describe here are dependencies by `react-native-ui-lib`
 
--@react-native-async-storage/async-storage
+- @react-native-async-storage/async-storage
 
 this dependencies is used to handle data persist, is simpler and the recomend solution by react native community
+
+
+
