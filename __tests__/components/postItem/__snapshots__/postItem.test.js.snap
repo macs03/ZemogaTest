@@ -3,6 +3,7 @@
 exports[`renders correctly 1`] = `
 <Drawer
   index={0}
+  onFullSwipeRight={[Function]}
   onSwipeableWillOpen={[Function]}
 >
   <ListItem
@@ -20,44 +21,6 @@ exports[`renders correctly 1`] = `
     }
     testID="navigateToPost"
   >
-    <View>
-      <View
-        style={
-          Object {
-            "backgroundColor": "#0E75EE",
-            "borderRadius": 4,
-            "height": 8,
-            "marginHorizontal": 2,
-            "width": 8,
-          }
-        }
-      />
-    </View>
-    <View>
-      <Image
-        accessibilityRole="image"
-        accessible={false}
-        assetGroup="icons"
-        source={
-          Object {
-            "testUri": "../../../src/assets/icons/star.png",
-          }
-        }
-        style={
-          Array [
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Object {},
-            Object {
-              "tintColor": "#FEE21C",
-            },
-          ]
-        }
-      />
-    </View>
     <View
       style={
         Object {
@@ -71,9 +34,10 @@ exports[`renders correctly 1`] = `
       <View
         style={
           Object {
-            "alignItems": "center",
+            "alignItems": "flex-start",
             "height": "70%",
             "justifyContent": "center",
+            "width": "100%",
           }
         }
       >
@@ -101,8 +65,9 @@ exports[`renders correctly 1`] = `
               undefined,
               undefined,
               Object {
-                "flex": 1,
                 "marginRight": 10,
+                "textAlign": "left",
+                "textAlignVertical": "center",
               },
             ]
           }

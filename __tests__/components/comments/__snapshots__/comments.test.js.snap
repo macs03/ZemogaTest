@@ -98,9 +98,7 @@ exports[`renders correctly 1`] = `
             "width": "100%",
           }
         }
-      >
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-      </Text>
+      />
     </View>
     <View
       onLayout={[Function]}
@@ -118,9 +116,7 @@ exports[`renders correctly 1`] = `
             "width": "100%",
           }
         }
-      >
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-      </Text>
+      />
     </View>
     <View
       onLayout={[Function]}
@@ -138,9 +134,7 @@ exports[`renders correctly 1`] = `
             "width": "100%",
           }
         }
-      >
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-      </Text>
+      />
     </View>
     <View
       onLayout={[Function]}
@@ -158,9 +152,7 @@ exports[`renders correctly 1`] = `
             "width": "100%",
           }
         }
-      >
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-      </Text>
+      />
     </View>
     <View
       onLayout={[Function]}

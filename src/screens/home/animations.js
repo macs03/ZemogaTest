@@ -1,4 +1,4 @@
-import {Animated} from 'react-native';
+import {Animated, Easing} from 'react-native';
 
 export default class Animations {
   constructor(component) {
@@ -6,5 +6,14 @@ export default class Animations {
     this.bootAnimations();
   }
 
-  bootAnimations() {}
+  bootAnimations() {
+    const {spinNumber} = this;
+
+    this.startSpin = Animated.timing(spinNumber, {
+      toValue: 1,
+      duration: 1500,
+      easing: Easing.linear,
+      useNativeDriver: true,
+    });
+  }
 }

@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import {Assets} from 'react-native-ui-lib';
-import {View, FlatList, Text} from 'react-native';
+import {View, FlatList, Text, Animated} from 'react-native';
 import React, {useEffect, useState, useLayoutEffect} from 'react';
 
 import styles from './styles';
+import Animations from './animations';
 import colors from '../../themes/colors';
 import handleData from '../../lib/utils/handleData';
 import Filter from '../../components/filter/filter';
@@ -14,6 +15,8 @@ import DeleteButton from '../../components/deleteButton/deleteButton';
 const Home = ({navigation}) => {
   const [items, setItems] = useState([]);
   const [onlyFavorites, setOnlyFavorites] = useState(false);
+  let spinNumber = new Animated.Value(0);
+  const animations = new Animations({spinNumber});
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -82,7 +85,10 @@ const Home = ({navigation}) => {
   };
 
   const deleteAll = () => {
-    setItems(handleData.deleteAll());
+    animations.startSpin.start(() => {
+      spinNumber.setValue(0);
+      setItems(handleData.deleteAll());
+    });
   };
 
   const deleteItem = (index) => {
@@ -90,31 +96,53 @@ const Home = ({navigation}) => {
     setItems(handleData.deleteItem(items[index].id, items));
   };
 
+  const spinContent = spinNumber.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: ['0deg', '45deg', '90deg'],
+  });
+
+  const scaleContent = spinNumber.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: [1, 0.5, 0],
+  });
+
   return (
     <View style={styles.container}>
       <Filter onFilter={onFilter} />
       {items.length > 0 ? (
-        <FlatList
-          style={styles.flatlist}
-          data={
-            onlyFavorites === 1 ? items.filter((item) => item.favorite) : items
-          }
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({item, index}) => (
-            <PostItem
-              item={{...item, rightButtons}}
-              index={index}
-              addRef={addRef}
-              onSwipeableWillOpen={closeLast}
-              navigationTo={onTapItem}
-              onDeleteItem={deleteItem}
-            />
-          )}
-          removeClippedSubviews={true}
-          initialNumToRender={75}
-          windowSize={1}
-          ListFooterComponent={<View style={styles.spacer} />}
-        />
+        <Animated.View
+          style={{
+            transform: [
+              {rotateX: spinContent},
+              {rotateY: spinContent},
+              {rotateZ: spinContent},
+              {scale: scaleContent},
+            ],
+          }}>
+          <FlatList
+            style={styles.flatlist}
+            data={
+              onlyFavorites === 1
+                ? items.filter((item) => item.favorite)
+                : items
+            }
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({item, index}) => (
+              <PostItem
+                item={{...item, rightButtons}}
+                index={index}
+                addRef={addRef}
+                onSwipeableWillOpen={closeLast}
+                navigationTo={onTapItem}
+                onDeleteItem={deleteItem}
+              />
+            )}
+            removeClippedSubviews={true}
+            initialNumToRender={75}
+            windowSize={1}
+            ListFooterComponent={<View style={styles.spacer} />}
+          />
+        </Animated.View>
       ) : (
         <Text>There is nothing</Text>
       )}
