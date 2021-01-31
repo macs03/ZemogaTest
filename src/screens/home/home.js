@@ -1,43 +1,26 @@
-import React from 'react';
-import {Assets} from 'react-native-ui-lib';
-import {View, FlatList} from 'react-native';
 import PropTypes from 'prop-types';
-import styles from './styles';
-import Filter from '../../components/filter/filter';
-import DeleteButton from '../../components/deleteButton/deleteButton';
-import PostItem from '../../components/postItem/postItem';
-import colors from '../../themes/colors';
+import {Assets} from 'react-native-ui-lib';
+import {View, FlatList, Text} from 'react-native';
+import React, {useEffect, useState} from 'react';
 
-const items = [
-  {
-    userId: 1,
-    id: 1,
-    title:
-      'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
-    body:
-      'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto',
-  },
-  {
-    userId: 2,
-    id: 2,
-    title:
-      'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
-    body:
-      'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto',
-  },
-  {
-    userId: 3,
-    id: 3,
-    title:
-      'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
-    body:
-      'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto',
-  },
-];
+import styles from './styles';
+import colors from '../../themes/colors';
+import handleData from '../../lib/utils/handleData';
+import Filter from '../../components/filter/filter';
+import PostItem from '../../components/postItem/postItem';
+import DeleteButton from '../../components/deleteButton/deleteButton';
 
 const Home = ({navigation}) => {
+  const [items, setItems] = useState([]);
+
   const refArray = [];
   let lastIndex;
+
+  useEffect(() => {
+    handleData.getAndHandlePosts().then((data) => {
+      setItems(data);
+    });
+  }, []);
 
   const addRef = (ref, index) => {
     refArray[index] = ref;
@@ -73,27 +56,31 @@ const Home = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Filter onFilter={() => {}} />
-      <FlatList
-        style={styles.flatlist}
-        data={items}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({item, index}) => (
-          <PostItem
-            item={{...item, rightButtons}}
-            index={index}
-            addRef={addRef}
-            onSwipeableWillOpen={closeLast}
-            navigationTo={() => navigation.navigate('Post')}
-            onDeleteItem={() => {
-              console.log('deleted');
-            }}
-          />
-        )}
-        removeClippedSubviews={true}
-        initialNumToRender={5}
-        windowSize={1}
-        ListFooterComponent={<View style={styles.spacer} />}
-      />
+      {items.length > 0 ? (
+        <FlatList
+          style={styles.flatlist}
+          data={items}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({item, index}) => (
+            <PostItem
+              item={{...item, rightButtons}}
+              index={index}
+              addRef={addRef}
+              onSwipeableWillOpen={closeLast}
+              navigationTo={() => navigation.navigate('Post')}
+              onDeleteItem={() => {
+                console.log('deleted');
+              }}
+            />
+          )}
+          removeClippedSubviews={true}
+          initialNumToRender={75}
+          windowSize={1}
+          ListFooterComponent={<View style={styles.spacer} />}
+        />
+      ) : (
+        <Text>Loading...</Text>
+      )}
       <DeleteButton onDelete={() => {}} />
     </View>
   );
