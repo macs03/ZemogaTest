@@ -1,9 +1,10 @@
 import AssetsLoader from './assetsLoader';
+import ApiLoader from './apiLoader';
 
-const globalLoaders = [AssetsLoader];
+const globalLoaders = [AssetsLoader, ApiLoader];
 
 export default class App {
-  static socket = undefined;
+  static api = undefined;
 
   static boot() {
     return Promise.all(globalLoaders.map((s) => s.boot(App)))
