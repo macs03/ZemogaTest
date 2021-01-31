@@ -27,7 +27,7 @@ const handleData = {
 
       return handledData;
     } catch (error) {
-      return error;
+      return [];
     }
   },
   markAsRead: (index, stateData) => {
@@ -63,7 +63,7 @@ const handleData = {
         comments: commentsData,
       };
     } catch (error) {
-      return error;
+      return [];
     }
   },
   markAsFavorite: (itemId, stateData) => {

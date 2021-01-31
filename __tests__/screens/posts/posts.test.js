@@ -10,6 +10,22 @@ import Post from '../../../src/screens/post/post';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  const tree = renderer.create(<Post navigation={{}} route={{}} />);
+  const tree = renderer.create(
+    <Post
+      navigation={{
+        setOptions: () => {},
+      }}
+      route={{
+        params: {
+          itemDetail: {
+            id: 1,
+            title: 'post',
+            body: 'post body',
+          },
+          markAsFavorite: () => {},
+        },
+      }}
+    />,
+  );
   expect(tree).toMatchSnapshot();
 });

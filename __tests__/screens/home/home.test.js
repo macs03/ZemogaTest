@@ -10,6 +10,13 @@ import Home from '../../../src/screens/home/home';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  const tree = renderer.create(<Home navigation={{}} route={{}} />);
+  const tree = renderer.create(
+    <Home
+      navigation={{
+        setOptions: () => {},
+      }}
+      route={{}}
+    />,
+  );
   expect(tree).toMatchSnapshot();
 });
