@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100%',
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: colors.darkGray,
   },
