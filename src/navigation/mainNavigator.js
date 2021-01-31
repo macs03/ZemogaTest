@@ -8,7 +8,6 @@ import colors from '../themes/colors';
 import Home from '../screens/home/home';
 import Post from '../screens/post/post';
 
-import Refresh from '../components/refresh/refresh';
 import Favorite from '../components/favorite/favorite';
 
 enableScreens();
@@ -26,29 +25,16 @@ const headerOptions = {
   },
 };
 
-const MainStackNavigator = () => {
-  return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{headerTransparent: true, title: ''}}
-      />
-    </Stack.Navigator>
-  );
-};
-
 const RootStackScreen = () => {
   return (
     <NavigationContainer>
       <RootStack.Navigator>
         <RootStack.Screen
-          name="Main"
-          component={MainStackNavigator}
+          name="Home"
+          component={Home}
           options={{
             title: 'Posts',
             headerLeft: null,
-            headerRight: () => <Refresh onRefresh={() => {}} />,
             ...headerOptions,
           }}
         />

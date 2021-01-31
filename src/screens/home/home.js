@@ -1,17 +1,32 @@
 import PropTypes from 'prop-types';
 import {Assets} from 'react-native-ui-lib';
 import {View, FlatList, Text} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useLayoutEffect} from 'react';
 
 import styles from './styles';
 import colors from '../../themes/colors';
 import handleData from '../../lib/utils/handleData';
 import Filter from '../../components/filter/filter';
+import Refresh from '../../components/refresh/refresh';
 import PostItem from '../../components/postItem/postItem';
 import DeleteButton from '../../components/deleteButton/deleteButton';
 
 const Home = ({navigation}) => {
   const [items, setItems] = useState([]);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Refresh
+          onRefresh={() => {
+            handleData.getAndHandlePosts().then((data) => {
+              setItems(data);
+            });
+          }}
+        />
+      ),
+    });
+  }, [navigation]);
 
   const refArray = [];
   let lastIndex;
