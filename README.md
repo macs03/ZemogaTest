@@ -48,5 +48,11 @@ it offers simple solutions to commons components like buttons badges and other, 
 
 this dependencies is used to handle data persist, is simpler and the recomend solution by react native community
 
+## Demo Examples
+
+- iOS
+https://drive.google.com/file/d/1UB4EiUltd3Q72LOJgHLlwWzyWslgUJIb/view?usp=sharing
 
 
+- Android
+https://drive.google.com/file/d/1xRuUcG_csrRWqvoG91SQ1jzNNaRSMUA2/view?usp=sharing
