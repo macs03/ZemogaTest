@@ -1,5 +1,10 @@
 export default class App {
-  static boot() {
-    return new Promise((resolve, reject) => {});
+  static api = {
+    get: jest.fn(),
+  };
+  static bootMocked() {
+    return new Promise((resolve, reject) => {
+      return App;
+    });
   }
 }

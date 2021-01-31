@@ -2,6 +2,8 @@
 import * as ReactNative from 'react-native';
 import * as UI from 'react-native-ui-lib';
 
+jest.mock('../src/lib/app');
+
 jest.doMock('react-native', () => {
   // Extend ReactNative
   return Object.setPrototypeOf(
@@ -118,7 +120,7 @@ jest.mock('@react-native-async-storage/async-storage', () => ({
     }),
     getItem: jest.fn(() => {
       return new Promise((resolve, reject) => {
-        resolve({});
+        resolve(null);
       });
     }),
   },

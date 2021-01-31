@@ -149,3 +149,153 @@ exports[`renders correctly 1`] = `
   </View>
 </View>
 `;
+
+exports[`renders correctly with data from service 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "height": "100%",
+      "justifyContent": "flex-start",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FAFAFA",
+        "flexDirection": "row",
+        "height": 50,
+        "justifyContent": "space-around",
+        "paddingHorizontal": 20,
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#16AA16",
+          "borderColor": "#16AA16",
+          "borderRadius": 2,
+          "borderWidth": 1,
+          "height": "60%",
+          "justifyContent": "center",
+          "opacity": 1,
+          "width": "50%",
+        }
+      }
+      testID="filtering-0"
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#16AA16",
+            },
+            Object {
+              "color": "#FFFFFF",
+            },
+          ]
+        }
+      >
+        All
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderColor": "#16AA16",
+          "borderRadius": 2,
+          "borderWidth": 1,
+          "height": "60%",
+          "justifyContent": "center",
+          "opacity": 1,
+          "width": "50%",
+        }
+      }
+      testID="filtering-1"
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#16AA16",
+            },
+            false,
+          ]
+        }
+      >
+        Favorite
+      </Text>
+    </View>
+  </View>
+  <Text>
+    There is nothing
+  </Text>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#D6000C",
+          "height": 80,
+          "justifyContent": "center",
+          "opacity": 1,
+          "width": "100%",
+        }
+      }
+      testID="deleteButton"
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+          }
+        }
+      >
+        Delete All
+      </Text>
+    </View>
+  </View>
+</View>
+`;
