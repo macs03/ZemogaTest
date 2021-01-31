@@ -10,12 +10,14 @@ const styles = StyleSheet.create({
   },
   middle: {
     height: '70%',
+    width: '100%',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   text: {
-    flex: 1,
     marginRight: 10,
+    textAlignVertical: 'center',
+    textAlign: 'left',
   },
   item: {
     paddingHorizontal: 20,
