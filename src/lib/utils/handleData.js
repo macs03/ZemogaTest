@@ -30,6 +30,19 @@ const handleData = {
       return error;
     }
   },
+  markAsRead: (index, stateData) => {
+    const handledData = stateData.map((item, itemIndex) => {
+      if (itemIndex === index) {
+        return {
+          ...item,
+          unread: false,
+        };
+      }
+      return item;
+    });
+
+    return handledData;
+  },
 };
 
 export default handleData;

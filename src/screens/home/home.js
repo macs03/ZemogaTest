@@ -53,6 +53,12 @@ const Home = ({navigation}) => {
     },
   ];
 
+  const onTapItem = (index) => {
+    console.log(index);
+    setItems(handleData.markAsRead(index, items));
+    navigation.navigate('Post');
+  };
+
   return (
     <View style={styles.container}>
       <Filter onFilter={() => {}} />
@@ -67,7 +73,7 @@ const Home = ({navigation}) => {
               index={index}
               addRef={addRef}
               onSwipeableWillOpen={closeLast}
-              navigationTo={() => navigation.navigate('Post')}
+              navigationTo={onTapItem}
               onDeleteItem={() => {
                 console.log('deleted');
               }}

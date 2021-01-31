@@ -39,7 +39,7 @@ const PostItem = ({
         <ListItem
           height={75.8}
           onPress={() => {
-            navigationTo();
+            navigationTo(index);
           }}
           testID="navigateToPost"
           style={styles.item}>
