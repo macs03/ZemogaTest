@@ -80,6 +80,12 @@ const handleData = {
 
     return handledData;
   },
+  deleteItem: (itemId, stateData) => {
+    return stateData.filter((item) => item.id !== itemId);
+  },
+  deleteAll: () => {
+    return [];
+  },
 };
 
 export default handleData;

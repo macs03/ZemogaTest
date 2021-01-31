@@ -81,6 +81,15 @@ const Home = ({navigation}) => {
     setOnlyFavorites(option);
   };
 
+  const deleteAll = () => {
+    setItems(handleData.deleteAll());
+  };
+
+  const deleteItem = (index) => {
+    refArray[index].closeDrawer();
+    setItems(handleData.deleteItem(items[index].id, items));
+  };
+
   return (
     <View style={styles.container}>
       <Filter onFilter={onFilter} />
@@ -98,9 +107,7 @@ const Home = ({navigation}) => {
               addRef={addRef}
               onSwipeableWillOpen={closeLast}
               navigationTo={onTapItem}
-              onDeleteItem={() => {
-                console.log('deleted');
-              }}
+              onDeleteItem={deleteItem}
             />
           )}
           removeClippedSubviews={true}
@@ -109,9 +116,9 @@ const Home = ({navigation}) => {
           ListFooterComponent={<View style={styles.spacer} />}
         />
       ) : (
-        <Text>Loading...</Text>
+        <Text>There is nothing</Text>
       )}
-      <DeleteButton onDelete={() => {}} />
+      <DeleteButton onDelete={deleteAll} />
     </View>
   );
 };

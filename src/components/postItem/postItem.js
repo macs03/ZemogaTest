@@ -34,7 +34,9 @@ const PostItem = ({
       ref={(ref) => addRef(ref, index)}
       index={index}
       onSwipeableWillOpen={onSwipeableWillOpen}
-      onFullSwipeRight={onDeleteItem}>
+      onFullSwipeRight={() => {
+        onDeleteItem(index);
+      }}>
       <Animated.View style={{transform: [{translateX: itemPosition}]}}>
         <ListItem
           height={75.8}
