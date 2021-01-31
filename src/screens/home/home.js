@@ -35,15 +35,6 @@ const items = [
   },
 ];
 
-const rightButtons = [
-  {
-    text: 'Delete',
-    icon: Assets.icons.trash,
-    background: colors.red,
-    onPress: (item) => console.log(item.index),
-  },
-];
-
 const Home = ({navigation}) => {
   const refArray = [];
   let lastIndex;
@@ -57,12 +48,27 @@ const Home = ({navigation}) => {
   };
 
   const closeLast = ({index}) => {
-    console.log(index);
     if (lastIndex !== undefined && lastIndex !== index) {
       closeDrawer(lastIndex);
     }
     lastIndex = index;
   };
+
+  const onDeleteItem = (index) => {
+    console.log(refArray);
+    refArray[index].openRightFull();
+  };
+
+  const rightButtons = [
+    {
+      text: 'Delete',
+      icon: Assets.icons.trash,
+      background: colors.red,
+      onPress: (item) => {
+        onDeleteItem(item.index);
+      },
+    },
+  ];
 
   return (
     <View style={styles.container}>
@@ -78,6 +84,9 @@ const Home = ({navigation}) => {
             addRef={addRef}
             onSwipeableWillOpen={closeLast}
             navigationTo={() => navigation.navigate('Post')}
+            onDeleteItem={() => {
+              console.log('deleted');
+            }}
           />
         )}
         removeClippedSubviews={true}
