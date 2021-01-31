@@ -5,9 +5,13 @@ const styles = StyleSheet.create({
   border: {
     paddingHorizontal: 17,
     width: '90%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   middle: {
-    marginBottom: 3,
+    height: '70%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
     flex: 1,

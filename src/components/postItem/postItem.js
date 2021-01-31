@@ -40,7 +40,7 @@ const PostItem = ({item, index, addRef, onSwipeableWillOpen, navigationTo}) => {
               style={styles.text}
               text70
               color={Colors.dark10}
-              numberOfLines={1}>
+              numberOfLines={2}>
               {item.title}
             </Text>
           </View>

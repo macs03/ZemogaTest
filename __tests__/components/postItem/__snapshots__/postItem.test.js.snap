@@ -61,6 +61,8 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Object {
+          "alignItems": "center",
+          "justifyContent": "center",
           "paddingHorizontal": 17,
           "width": "90%",
         }
@@ -69,13 +71,15 @@ exports[`renders correctly 1`] = `
       <View
         style={
           Object {
-            "marginBottom": 3,
+            "alignItems": "center",
+            "height": "70%",
+            "justifyContent": "center",
           }
         }
       >
         <Text
           color="#20303C"
-          numberOfLines={1}
+          numberOfLines={2}
           style={
             Array [
               Object {
