@@ -8,8 +8,6 @@ import colors from '../themes/colors';
 import Home from '../screens/home/home';
 import Post from '../screens/post/post';
 
-import Favorite from '../components/favorite/favorite';
-
 enableScreens();
 
 const Stack = createStackNavigator();
@@ -42,8 +40,6 @@ const RootStackScreen = () => {
           name="Post"
           component={Post}
           options={{
-            title: 'Post',
-            headerRight: () => <Favorite onMarkAsFavorite={() => {}} />,
             ...headerOptions,
           }}
         />

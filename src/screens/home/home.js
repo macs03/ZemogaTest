@@ -53,7 +53,6 @@ const Home = ({navigation}) => {
   };
 
   const onDeleteItem = (index) => {
-    console.log(refArray);
     refArray[index].openRightFull();
   };
 
@@ -69,9 +68,8 @@ const Home = ({navigation}) => {
   ];
 
   const onTapItem = (index) => {
-    console.log(index);
     setItems(handleData.markAsRead(index, items));
-    navigation.navigate('Post');
+    navigation.navigate('Post', items[index]);
   };
 
   return (

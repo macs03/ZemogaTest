@@ -5,9 +5,13 @@ import {Text, View, FlatList} from 'react-native';
 import styles from './styles';
 
 const DeleteButton = ({comments}) => {
-  const renderItem = ({item}) => {
-    return <Text style={styles.item}>{item}</Text>;
+  const renderItem = ({item: {body}}) => {
+    return <Text style={styles.item}>{body}</Text>;
   };
+
+  if (comments.length === 0) {
+    return <Text>Loading...</Text>;
+  }
 
   return (
     <FlatList

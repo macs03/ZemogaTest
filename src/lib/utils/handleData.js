@@ -43,6 +43,29 @@ const handleData = {
 
     return handledData;
   },
+  getUserAndComments: async (userId, postId) => {
+    try {
+      const userResponse = await App.api.get(`users/${userId}`);
+      const userData = await userResponse.json();
+
+      const commentsResponse = await App.api.get(`comments?postId=${postId}`);
+      const commentsData = await commentsResponse.json();
+
+      const {name, email, phone, website} = userData;
+
+      return {
+        user: {
+          name,
+          email,
+          phone,
+          website,
+        },
+        comments: commentsData,
+      };
+    } catch (error) {
+      return error;
+    }
+  },
 };
 
 export default handleData;
