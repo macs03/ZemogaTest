@@ -1,8 +1,23 @@
 import App from '../app';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const handleData = {
-  getAndHandlePosts: async () => {
+  saveData: async (dataToStored) => {
     try {
+      const jsonValue = JSON.stringify(dataToStored);
+      await AsyncStorage.setItem('@app_data', jsonValue);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  getAndHandlePosts: async (reload = false) => {
+    try {
+      const storedData = await AsyncStorage.getItem('@app_data');
+
+      if (storedData !== null && !reload) {
+        return JSON.parse(storedData);
+      }
+
       const response = await App.api.get('posts');
       const data = await response.json();
 
@@ -21,9 +36,10 @@ const handleData = {
             unread: false,
           };
         }
-
         return handleItem;
       });
+
+      handleData.saveData(handledData);
 
       return handledData;
     } catch (error) {
@@ -40,6 +56,8 @@ const handleData = {
       }
       return item;
     });
+
+    handleData.saveData(handledData);
 
     return handledData;
   },
@@ -78,12 +96,17 @@ const handleData = {
       return item;
     });
 
+    handleData.saveData(handledData);
+
     return handledData;
   },
   deleteItem: (itemId, stateData) => {
-    return stateData.filter((item) => item.id !== itemId);
+    const filteredData = stateData.filter((item) => item.id !== itemId);
+    handleData.saveData(filteredData);
+    return filteredData;
   },
   deleteAll: () => {
+    handleData.saveData([]);
     return [];
   },
 };

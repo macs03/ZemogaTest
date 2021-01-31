@@ -23,7 +23,7 @@ const Home = ({navigation}) => {
       headerRight: () => (
         <Refresh
           onRefresh={() => {
-            handleData.getAndHandlePosts().then((data) => {
+            handleData.getAndHandlePosts(true).then((data) => {
               setItems(data);
             });
           }}
