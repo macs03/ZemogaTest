@@ -13,6 +13,7 @@ import DeleteButton from '../../components/deleteButton/deleteButton';
 
 const Home = ({navigation}) => {
   const [items, setItems] = useState([]);
+  const [onlyFavorites, setOnlyFavorites] = useState(false);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -76,13 +77,19 @@ const Home = ({navigation}) => {
     navigation.navigate('Post', {itemDetail: items[index], markAsFavorite});
   };
 
+  const onFilter = (option) => {
+    setOnlyFavorites(option);
+  };
+
   return (
     <View style={styles.container}>
-      <Filter onFilter={() => {}} />
+      <Filter onFilter={onFilter} />
       {items.length > 0 ? (
         <FlatList
           style={styles.flatlist}
-          data={items}
+          data={
+            onlyFavorites === 1 ? items.filter((item) => item.favorite) : items
+          }
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item, index}) => (
             <PostItem
