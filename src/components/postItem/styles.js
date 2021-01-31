@@ -3,10 +3,8 @@ import colors from '../../themes/colors';
 
 const styles = StyleSheet.create({
   border: {
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.darkGray,
     paddingHorizontal: 17,
-    width: '100%',
+    width: '90%',
   },
   middle: {
     marginBottom: 3,
@@ -17,6 +15,12 @@ const styles = StyleSheet.create({
   },
   item: {
     paddingHorizontal: 20,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.darkGray,
   },
   favoriteIcon: {
     tintColor: colors.gold,

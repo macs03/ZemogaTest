@@ -48,7 +48,7 @@ const RootStackScreen = () => {
           options={{
             title: 'Posts',
             headerLeft: null,
-            headerRight: () => <Refresh />,
+            headerRight: () => <Refresh onRefresh={() => {}} />,
             ...headerOptions,
           }}
         />
@@ -57,7 +57,7 @@ const RootStackScreen = () => {
           component={Post}
           options={{
             title: 'Post',
-            headerRight: () => <Favorite />,
+            headerRight: () => <Favorite onMarkAsFavorite={() => {}} />,
             ...headerOptions,
           }}
         />

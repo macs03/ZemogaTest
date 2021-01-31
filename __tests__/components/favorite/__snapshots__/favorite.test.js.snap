@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+      "opacity": 1,
+      "paddingHorizontal": 10,
+    }
+  }
+  testID="markAsFavorite"
+>
+  <View
+    style={
+      Object {
+        "transform": Array [
+          Object {
+            "scale": 1,
+          },
+        ],
+      }
+    }
+  >
+    <Image
+      accessibilityRole="image"
+      accessible={false}
+      assetGroup="icons"
+      source={
+        Object {
+          "testUri": "../../../src/assets/icons/star.png",
+        }
+      }
+      style={
+        Array [
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          Object {},
+          Object {
+            "tintColor": "#FFFFFF",
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;

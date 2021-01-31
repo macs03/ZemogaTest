@@ -66,7 +66,7 @@ const Home = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Filter />
+      <Filter onFilter={() => {}} />
       <FlatList
         style={styles.flatlist}
         data={items}

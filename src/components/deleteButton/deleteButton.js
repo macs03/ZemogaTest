@@ -9,7 +9,10 @@ import styles from './styles';
 const DeleteButton = ({onDelete}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={onDelete}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={onDelete}
+        testID="deleteButton">
         {Platform.OS === 'android' ? (
           <Image source={Assets.icons.trash} style={styles.icon} />
         ) : (

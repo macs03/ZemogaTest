@@ -24,17 +24,18 @@ const PostItem = ({item, index, addRef, onSwipeableWillOpen, navigationTo}) => {
         onPress={() => {
           navigationTo();
         }}
+        testID="navigateToPost"
         style={styles.item}>
-        <ListItem.Part left>
+        <View>
           <View style={styles.dot} />
-        </ListItem.Part>
+        </View>
         {Platform.OS === 'ios' && (
-          <ListItem.Part left>
+          <View>
             <Image source={Assets.icons.favorite} style={styles.favoriteIcon} />
-          </ListItem.Part>
+          </View>
         )}
-        <ListItem.Part middle column containerStyle={styles.border}>
-          <ListItem.Part containerStyle={styles.middle}>
+        <View style={styles.border}>
+          <View style={styles.middle}>
             <Text
               style={styles.text}
               text70
@@ -42,18 +43,18 @@ const PostItem = ({item, index, addRef, onSwipeableWillOpen, navigationTo}) => {
               numberOfLines={1}>
               {item.title}
             </Text>
-          </ListItem.Part>
-        </ListItem.Part>
+          </View>
+        </View>
 
         {Platform.OS === 'ios' && (
-          <ListItem.Part right>
+          <View>
             <Image source={Assets.icons.chevron} style={styles.chevronIcon} />
-          </ListItem.Part>
+          </View>
         )}
         {Platform.OS === 'android' && (
-          <ListItem.Part right>
+          <View>
             <Image source={Assets.icons.favorite} style={styles.favoriteIcon} />
-          </ListItem.Part>
+          </View>
         )}
       </ListItem>
     </Drawer>

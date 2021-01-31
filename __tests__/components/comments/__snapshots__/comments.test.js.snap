@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<RCTScrollView
+  ListFooterComponent={
+    <View
+      style={
+        Object {
+          "backgroundColor": undefined,
+          "height": 38,
+          "marginBottom": 30,
+          "width": "100%",
+        }
+      }
+    />
+  }
+  ListHeaderComponent={
+    <View
+      style={
+        Object {
+          "backgroundColor": "#D7D7D7",
+          "fontWeight": "bold",
+          "paddingLeft": 20,
+          "paddingVertical": 3,
+          "width": "100%",
+        }
+      }
+    >
+      <Text>
+        COMMENTS
+      </Text>
+    </View>
+  }
+  data={
+    Array [
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={5}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={true}
+  renderItem={[Function]}
+  scrollEnabled={false}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  updateCellsBatchingPeriod={50}
+  viewabilityConfigCallbackPairs={Array []}
+  windowSize={1}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#D7D7D7",
+            "fontWeight": "bold",
+            "paddingLeft": 20,
+            "paddingVertical": 3,
+            "width": "100%",
+          }
+        }
+      >
+        <Text>
+          COMMENTS
+        </Text>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        style={
+          Object {
+            "borderBottomColor": "#D7D7D7",
+            "borderBottomWidth": 0.5,
+            "borderColor": "transparent",
+            "paddingHorizontal": 20,
+            "paddingVertical": 6,
+            "textAlign": "justify",
+            "width": "100%",
+          }
+        }
+      >
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        style={
+          Object {
+            "borderBottomColor": "#D7D7D7",
+            "borderBottomWidth": 0.5,
+            "borderColor": "transparent",
+            "paddingHorizontal": 20,
+            "paddingVertical": 6,
+            "textAlign": "justify",
+            "width": "100%",
+          }
+        }
+      >
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        style={
+          Object {
+            "borderBottomColor": "#D7D7D7",
+            "borderBottomWidth": 0.5,
+            "borderColor": "transparent",
+            "paddingHorizontal": 20,
+            "paddingVertical": 6,
+            "textAlign": "justify",
+            "width": "100%",
+          }
+        }
+      >
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        style={
+          Object {
+            "borderBottomColor": "#D7D7D7",
+            "borderBottomWidth": 0.5,
+            "borderColor": "transparent",
+            "paddingHorizontal": 20,
+            "paddingVertical": 6,
+            "textAlign": "justify",
+            "width": "100%",
+          }
+        }
+      >
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": undefined,
+            "height": 38,
+            "marginBottom": 30,
+            "width": "100%",
+          }
+        }
+      />
+    </View>
+  </View>
+</RCTScrollView>
+`;

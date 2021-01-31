@@ -1,5 +1,6 @@
 /* eslint-disable */
 import * as ReactNative from 'react-native';
+import * as UI from 'react-native-ui-lib';
 
 jest.doMock('react-native', () => {
   // Extend ReactNative
@@ -79,9 +80,31 @@ jest.mock('@react-navigation/stack', () => {
   return {createStackNavigator: () => {}};
 });
 
-jest.mock('socket.io-client', () => {
-  const socket = jest.requireActual('socket.io-client');
-  socket.on = jest.fn();
-  socket.emit = jest.fn();
-  return socket.io;
+jest.doMock('react-native-ui-lib', () => {
+  const React = require('react');
+
+  return Object.setPrototypeOf(
+    {
+      Assets: {
+        loadAssetsGroup: () => {
+          return {
+            refresh: require('../src/assets/icons/refresh.png'),
+            favorite: require('../src/assets/icons/star.png'),
+            trash: require('../src/assets/icons/delete.png'),
+            chevron: require('../src/assets/icons/chevronRight.png'),
+          };
+        },
+        icons: {
+          refresh: require('../src/assets/icons/refresh.png'),
+          favorite: require('../src/assets/icons/star.png'),
+          trash: require('../src/assets/icons/delete.png'),
+          chevron: require('../src/assets/icons/chevronRight.png'),
+        },
+      },
+      ListItem: (props) =>
+        React.createElement('ListItem', props, props.children),
+      Drawer: (props) => React.createElement('Drawer', props, props.children),
+    },
+    UI,
+  );
 });

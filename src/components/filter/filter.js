@@ -9,11 +9,12 @@ const buttons = {
   favorite: 'Favorite',
 };
 
-const Filter = () => {
+const Filter = ({onFilter}) => {
   const [active, setActive] = useState(0);
 
   const onPressButton = (index) => {
     setActive(index);
+    onFilter(index);
   };
 
   return (
@@ -22,7 +23,8 @@ const Filter = () => {
         <TouchableOpacity
           style={[styles.button, active === index && styles.activeButton]}
           onPress={() => onPressButton(index)}
-          key={index}>
+          key={index}
+          testID={`filtering-${index}`}>
           <Text style={[styles.text, active === index && styles.activeText]}>
             {Platform.OS === 'android' ? button.toUpperCase() : button}
           </Text>
@@ -32,6 +34,8 @@ const Filter = () => {
   );
 };
 
-Filter.propTypes = {};
+Filter.propTypes = {
+  onFilter: PropTypes.func.isRequired,
+};
 
 export default Filter;

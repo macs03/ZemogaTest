@@ -6,7 +6,7 @@ import {Animated, TouchableOpacity} from 'react-native';
 import styles from './styles';
 import Animations from './animations';
 
-const Favorite = () => {
+const Favorite = ({onMarkAsFavorite}) => {
   const iconScale = useRef(new Animated.Value(1)).current;
 
   const animations = new Animations({iconScale});
@@ -15,10 +15,14 @@ const Favorite = () => {
     animations.startScale.start(() => {
       animations.startScale.reset();
     });
+    onMarkAsFavorite();
   };
 
   return (
-    <TouchableOpacity style={styles.container} onPress={onPressButton}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={onPressButton}
+      testID="markAsFavorite">
       <Animated.View style={{transform: [{scale: iconScale}]}}>
         <Image source={Assets.icons.favorite} style={styles.icon} />
       </Animated.View>
@@ -26,6 +30,8 @@ const Favorite = () => {
   );
 };
 
-Favorite.propTypes = {};
+Favorite.propTypes = {
+  onMarkAsFavorite: PropTypes.func.isRequired,
+};
 
 export default Favorite;
