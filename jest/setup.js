@@ -108,3 +108,18 @@ jest.doMock('react-native-ui-lib', () => {
     UI,
   );
 });
+
+jest.mock('@react-native-async-storage/async-storage', () => ({
+  AsyncStorage: {
+    setItem: jest.fn(() => {
+      return new Promise((resolve, reject) => {
+        resolve(null);
+      });
+    }),
+    getItem: jest.fn(() => {
+      return new Promise((resolve, reject) => {
+        resolve({});
+      });
+    }),
+  },
+}));
