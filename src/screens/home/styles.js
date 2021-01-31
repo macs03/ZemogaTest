@@ -9,6 +9,9 @@ const styles = StyleSheet.create({
   flatlist: {
     width: '100%',
   },
+  spacer: {
+    height: 70,
+  },
 });
 
 export default styles;

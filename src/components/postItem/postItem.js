@@ -43,10 +43,12 @@ const PostItem = ({
           }}
           testID="navigateToPost"
           style={styles.item}>
-          <View>
-            <View style={styles.dot} />
-          </View>
-          {Platform.OS === 'ios' && (
+          {item.unread && (
+            <View>
+              <View style={styles.dot} />
+            </View>
+          )}
+          {Platform.OS === 'ios' && item.favorite && (
             <View>
               <Image
                 source={Assets.icons.favorite}
@@ -71,7 +73,7 @@ const PostItem = ({
               <Image source={Assets.icons.chevron} style={styles.chevronIcon} />
             </View>
           )}
-          {Platform.OS === 'android' && (
+          {Platform.OS === 'android' && item.favorite && (
             <View>
               <Image
                 source={Assets.icons.favorite}
