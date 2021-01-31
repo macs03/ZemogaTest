@@ -8,21 +8,34 @@ import Favorite from '../../components/favorite/favorite';
 
 import styles from './styles';
 
-const Post = ({navigation, route: {params}}) => {
+const Post = ({
+  navigation,
+  route: {
+    params: {itemDetail, markAsFavorite},
+  },
+}) => {
   const [item, setItem] = useState({user: {}, comments: []});
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: () => <Favorite onMarkAsFavorite={() => {}} />,
-      title: params.title,
+      headerRight: () => (
+        <Favorite
+          onMarkAsFavorite={() => {
+            markAsFavorite(itemDetail.id);
+          }}
+        />
+      ),
+      title: itemDetail.title,
     });
-  }, [navigation, params]);
+  }, [navigation, itemDetail, markAsFavorite]);
 
   useEffect(() => {
-    handleData.getUserAndComments(params.userId, params.id).then((data) => {
-      setItem(data);
-    });
-  }, [params]);
+    handleData
+      .getUserAndComments(itemDetail.userId, itemDetail.id)
+      .then((data) => {
+        setItem(data);
+      });
+  }, [itemDetail]);
 
   const {
     user: {name, email, phone, website},
@@ -33,7 +46,7 @@ const Post = ({navigation, route: {params}}) => {
     <ScrollView style={styles.scrollContainer}>
       <View style={styles.container}>
         <Text style={styles.title}>Description</Text>
-        <Text style={styles.description}>{params.body}</Text>
+        <Text style={styles.description}>{itemDetail.body}</Text>
         <Text style={styles.title}>User</Text>
         <Text style={styles.description}>{name}</Text>
         <Text style={styles.description}>{email}</Text>

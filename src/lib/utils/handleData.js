@@ -66,6 +66,20 @@ const handleData = {
       return error;
     }
   },
+  markAsFavorite: (itemId, stateData) => {
+    const handledData = stateData.map((item) => {
+      if (itemId === item.id) {
+        return {
+          ...item,
+          favorite: true,
+          unread: false,
+        };
+      }
+      return item;
+    });
+
+    return handledData;
+  },
 };
 
 export default handleData;

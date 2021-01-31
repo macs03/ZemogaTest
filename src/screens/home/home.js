@@ -67,9 +67,13 @@ const Home = ({navigation}) => {
     },
   ];
 
+  const markAsFavorite = (itemId) => {
+    setItems(handleData.markAsFavorite(itemId, items));
+  };
+
   const onTapItem = (index) => {
     setItems(handleData.markAsRead(index, items));
-    navigation.navigate('Post', items[index]);
+    navigation.navigate('Post', {itemDetail: items[index], markAsFavorite});
   };
 
   return (
